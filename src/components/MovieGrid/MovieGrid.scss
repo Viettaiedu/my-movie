@@ -1,0 +1,96 @@
+@use '../../scss/' as *;
+
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 11;
+    top: 150px;
+    &__card {
+        width: 15%;
+
+        cursor: pointer;
+        margin-bottom: 40px;
+        & + & {
+            margin-left: 33px;
+            border-radius: 10px;
+        }
+        &:nth-of-type(6n + 1) {
+            margin-left: 0;
+        }
+
+        &__item {
+            height: 350px;
+            border-radius: 10px;
+            &__img {
+                border-radius: 10px;
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &__more {
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 40px;
+        font-size: 2rem;
+        font-weight: bold;
+        border: 3px solid $bg-red;
+        background-color: $white;
+        letter-spacing: 3px;
+        border-radius: 8px;
+        text-shadow: 0px 0px 3px $white;
+        cursor: pointer;
+        transition: all .1 ease;
+        &:hover {
+            background-color: red;
+        }
+    }
+
+    @include tablet {
+        & {
+            justify-content: center;
+            &__card {
+                @include tablet {
+                    & {
+                        width: 22%;
+
+                        & + & {
+                            margin-left: 20px;
+                        }
+
+                        &:nth-of-type(4n + 1) {
+                            margin-left: 0;
+                        }
+
+                        &__item {
+                            height: 250px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include mobile {
+        & {
+            &__card {
+                & {
+                    width: 47%;
+                    margin: 0 10px 15px 10px;
+                    & + & {
+                        margin-left: 0px;
+                    }
+                }
+            }
+
+            &__more {
+                bottom: -50px;
+            }
+        }
+    }
+}

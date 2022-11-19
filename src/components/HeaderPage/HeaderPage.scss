@@ -1,0 +1,18 @@
+@use '../../scss/' as *;
+
+.header-page {
+    position: relative;
+    z-index: 10;
+    font-size: 3rem;
+    font-weight: bold;
+    height: 500px;
+    background: url(https://img.freepik.com/free-vector/film-strip-with-light-effect-cinema-background_1017-38171.jpg?w=2000) no-repeat center/cover;
+
+}
+
+.header-page__heading {
+    position: absolute;
+    top:20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
