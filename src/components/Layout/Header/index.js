@@ -3,10 +3,10 @@ import styles from './Header.scss';
 import React from 'react';
 import logo from '../../../assets/images/logo.png';
 import { Link } from 'react-router-dom';
-
+import config from '~/config';
 const cx = classNames.bind(styles);
 const headerItems = [
-    { display: 'Home', path: '/' },
+    { display: 'Home', path: config.routes.home },
     { display: 'Movie', path: '/movie' },
     { display: 'TV Series', path: '/tv' },
 ];
@@ -15,10 +15,10 @@ function Header() {
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
                 <div className={cx('header-left')}>
-                    <Link to="/">
+                    <Link to={config.routes.home}>
                         <img className={cx('header-left__img')} src={logo} alt="Netfix" />
                     </Link>
-                    <Link to="/" className={cx('header-left__title')}>
+                    <Link to={config.routes.home} className={cx('header-left__title')}>
                         TMovies
                     </Link>
                 </div>

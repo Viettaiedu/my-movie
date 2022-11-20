@@ -4,14 +4,15 @@
    
     &__list {
         position: relative;
-        margin: 10px 40px;
+        margin: 30px 40px ;
+       
         text-align: center;
         &__title {
             text-shadow: $textshadow;
             font-size: 2.6rem;
             position: absolute;
             left:50%;
-            top:-65px;
+            top: -14px;
             transform: translateX(-50%);
         }
     }

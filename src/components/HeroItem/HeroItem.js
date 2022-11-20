@@ -5,13 +5,12 @@ import React from 'react'
 import apiConfig from '~/api/apiConfig';
 import Button from '../Button/Button';
 import tmdbClient , {category} from '~/api/tmdbClient';
-import fakeImg from '~/assets/images/fake-img.webp'
 const cx = classNames.bind(styles);
 function HeroItem({item , className}) {
     const classNames = cx('hero' , {
         active : className
     })
-        const background = apiConfig.originalImage(item.backdrop_path || item.poster_path || fakeImg)
+        const background = apiConfig.originalImage(item.backdrop_path || item.poster_path )
 
         const setModalActive = async () => {
                const params = {
@@ -33,7 +32,7 @@ function HeroItem({item , className}) {
         }
   return (
     <div className={classNames}>
-            <div className='hero__background' style={{backgroundImage:`url(${background || fakeImg})`}}>
+            <div className='hero__background' style={{backgroundImage:`url(${background })`}}>
             </div>
             <div className='hero__content'>
                     <div className='hero__content__info'>
@@ -49,7 +48,7 @@ function HeroItem({item , className}) {
                         </div>
                     </div>
                     <div className='hero__content__img hero-show--img'>
-                        <img src={apiConfig.w500Image(item.poster_path || fakeImg)} alt={item.title || item.name} />
+                        <img src={apiConfig.w500Image(item.poster_path )} alt={item.title || item.name} />
                     </div>
             </div>
 

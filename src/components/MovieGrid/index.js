@@ -4,6 +4,7 @@ import apiConfig from '~/api/apiConfig';
 import tmdbClient, { category, tvType, movieType } from '~/api/tmdbClient';
 import ItemCard from '../ItemCard';
 import './MovieGrid.scss';
+import MovieSearch from '~/components/MovieSearch'
 let totalPage = 0;
 function MovieGrid({ cate }) {
     const [item, setItem] = useState([]);
@@ -34,13 +35,24 @@ function MovieGrid({ cate }) {
                             break;
                         default:
                     }
+                }else{
+                    options = {
+                        params: {
+                            api_key: apiConfig.apiKey,
+                            page: page,
+                            query : keyword,
+                        },
+                    };
+                    res = await tmdbClient.search(cate,options);
+                    console.log("grid Ok")
+                    setItem(res.data.results);
                 }
             } catch (e) {
                 console.log('error');
             }
         };
         getMovie();
-    }, [cate]);
+    }, [cate,keyword]);
 
     const handleMorePage = useCallback(() => {
         options = {
@@ -72,7 +84,11 @@ function MovieGrid({ cate }) {
         getMovie();
         setPage(page + 1);
     }, [page]);
-    return (
+    return (    
+        <>
+        <>
+            <MovieSearch cate={cate} defaultKey={keyword}/>
+        </>
         <div className="movie-grid">
             {item.map((item, i) => (
                 <ItemCard className={'movie-grid__card'} key={i} item={item} cate={cate} />
@@ -85,6 +101,7 @@ function MovieGrid({ cate }) {
                 ''
             )}
         </div>
+        </>
     );
 }
 

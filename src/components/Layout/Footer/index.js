@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import config from '~/config';
 import './Footer.scss'
 function Footer() {
     return (
@@ -7,7 +8,7 @@ function Footer() {
             <h3 className="footer__heading">TMovies</h3>
             <div className="footer__content">
                 <ul className="footer__item">
-                    <Link className='footer__link' to="/">Home</Link>
+                    <Link className='footer__link' to={config.routes.home}>Home</Link>
                     <Link className='footer__link'>Contact us</Link>
                     <Link className='footer__link'>Term of services</Link>
                     <Link className='footer__link'>About us</Link>

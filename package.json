@@ -1,6 +1,6 @@
 {
-    "homepage": "http://Viettaiedu.github.io/ui-movies",
     "name": "my-app",
+    "homepage": "https://Viettaiedu.github.io/my-movie/",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -48,6 +48,7 @@
     },
     "devDependencies": {
         "customize-cra": "^1.0.0",
+        "gh-pages": "^4.0.0",
         "react-app-rewired": "^2.2.1"
     }
 }
