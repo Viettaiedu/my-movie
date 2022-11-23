@@ -1,6 +1,6 @@
 {
     "name": "my-app",
-    "homepage": "https://Viettaiedu.github.io/my-movie/",
+    "homepage": "https://Viettaiedu.github.io/my-movie",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
